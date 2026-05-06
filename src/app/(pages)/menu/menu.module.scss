@@ -1,0 +1,357 @@
+.menu {
+    width: 100%;
+    max-width: 1260px;
+    margin: 100px auto 0px;
+
+    font-family: 'PyeojinGothic';
+
+    .main_title {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'PyeojinGothic';
+        font-size: 40px;
+        font-weight: 800;
+        position: relative;
+        padding-bottom: 50px;
+
+
+        >span {
+            color: rgb(118, 222, 153);
+        }
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+
+    width: 265px;
+    height: 35px;
+
+    padding: 0 15px;
+    gap: 10px;
+
+    border-radius: 999px;
+    border: 1px solid rgb(118, 222, 153);
+
+    background-color: #1e2227;
+
+    input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 14px;
+    }
+
+    img {
+        width: 20px;
+        //opacity: 0.8;
+    }
+}
+
+.text {
+    font-size: 14px;
+    color: rgb(107, 107, 107);
+    padding: 8px;
+}
+
+.searchBox {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+
+    .searchtxt {
+        display: flex;
+    }
+
+
+
+    .icon {
+        display: flex;
+        gap: 10px;
+
+        .btn {
+            width: 33px;
+            height: 33px;
+            background-color: rgb(118, 222, 153);
+            border-radius: 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+//검색없음
+.searchNone {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* 표 */
+.section {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #1F2022;
+    height: 370px;
+    border-radius: 11px;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #565656;
+        border-radius: 999px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+
+        &:hover {
+            background: #76DE99;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+    }
+
+    .graph {
+        width: 100%;
+        border-radius: 11px;
+        border: 1px solid #2D2C2F;
+
+    }
+
+    .titleLine {
+        position: sticky;
+        top: 0;
+        // z-index: 10;
+        background-color: #262729;
+
+        background-color: #262729;
+        flex-shrink: 0; //헤더 고정
+
+
+    }
+}
+
+.titleLine,
+.Line {
+    height: 65px;
+    padding: 0 50px;
+
+    display: grid;
+    align-items: center;
+    grid-template-columns: 90px 200px 200px 200px 170px 100px;
+
+    font-weight: bold;
+    border-radius: 11px 11px 0 0;
+
+    .sortTxt {
+        display: flex;
+        gap: 10px;
+    }
+
+    .Lines {
+        display: contents;
+        align-items: center;
+    }
+
+    .checkbox {
+        appearance: none;
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        aspect-ratio: 1/1;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #262729;
+        border: 1px solid #5A5B5C;
+        border-radius: 3px;
+
+
+        &:checked {
+            background: url(/img/icon/ic-check.svg) no-repeat center / contain;
+            background-color: #85D575;
+            border: 1px solid #5A5B5C;
+            border-radius: 3px;
+        }
+    }
+}
+
+.editBtn {
+    cursor: pointer;
+}
+
+.Line {
+    height: 65px;
+    //gap: 160px;
+    //padding: 0 10px 0 20px;
+    border-bottom: 1px solid #2D2C2F;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+
+    display: grid;
+    align-items: center;
+    grid-template-columns: 90px 200px 200px 200px 170px 160px 100px;
+
+    &:hover {
+        background: #2e2e2e5e;
+        border-radius: none;
+    }
+
+}
+
+.Line input {
+    width: 120px;
+    background: #2a2b2d;
+    border: 1px solid #444;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.AllinputBtn {
+    display: flex;
+    gap: 5px;
+
+    .inputBtn {
+        width: 48px;
+        height: 30px;
+        background-color: #76DE99;
+        border-radius: 10px;
+        border: none;
+    }
+
+}
+
+//드롭다운
+.Line select {
+    width: 120px;
+    background: #2a2b2d;
+    border: 1px solid #444;
+    color: #7e7f83;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.active {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.soldout {
+    color: #FF6161;
+    font-weight: 600;
+}
+
+
+
+/* ai 분석*/
+.AItitle {
+    display: flex;
+    padding: 20px 0;
+    font-size: 18px;
+    gap: 10px;
+
+}
+
+
+.AllaiBox {
+    display: flex;
+    gap: 30px;
+
+    .aiBox {
+        width: 615px;
+        height: 220px;
+        background-color: #121214;
+        border-radius: 11px;
+        border: 0.5px solid rgb(118, 222, 153);
+
+        .aiBox2_title {
+            display: flex;
+            gap: 10px;
+            padding: 20px 20px 0;
+
+            span {
+                font-size: 24px;
+            }
+        }
+
+        .aiBox2_text {
+            padding: 5px 20px 5px;
+            color: #76DE99;
+
+            .aiText {
+
+                li,
+                p {
+                    font-size: 16px;
+                    color: #FFFF;
+                    line-height: 1.5;
+                }
+
+                padding: 10px 20px;
+                width: 560px;
+                //background-color: #3b443959;
+                border-radius: 11px;
+            }
+        }
+    }
+
+    .aiBox2 {
+        width: 615px;
+        height: 220px;
+        background-color: #121214;
+        border-radius: 11px;
+        border: 0.5px solid #FF6161;
+
+        .aiBox2_title {
+            display: flex;
+            gap: 10px;
+            padding: 20px 20px 0;
+
+            span {
+                font-size: 24px;
+            }
+        }
+
+        .aiBox2_text {
+            padding: 5px 20px 5px;
+            color: #76DE99;
+
+            .aiText {
+
+                li,
+                p {
+                    font-size: 16px;
+                    color: #FFFF;
+                    line-height: 1.5;
+                }
+
+                padding: 10px 20px;
+                width: 560px;
+                //background-color: #3b443959;
+                border-radius: 11px;
+            }
+        }
+    }
+}

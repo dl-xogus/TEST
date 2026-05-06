@@ -1,0 +1,133 @@
+@use '../../../../styles/variables' as *;
+
+
+
+.container {
+    @include container;
+    flex-direction: column;
+    max-width: 720px;
+    .check {
+        margin: 0 auto;
+        width: 160px;
+        height: 160px;
+        background-color: $point;
+        border-radius: 50%;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: $background;
+            -webkit-mask: url(/img/icon/ic-check.svg) no-repeat center / 120px 120px;
+            mask: url(/img/icon/ic-check.svg) no-repeat center / 120px 120px;
+        }
+    }
+    
+    .completeText{
+        gap: 3px;
+        h1{
+            font-size: 54px;
+        }
+        span{
+            font-size: 24px;
+        }
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        text-align: center;
+        padding: 50px 0;
+    }
+    .divider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+
+        .dividerLine {
+            display: block;
+            flex: 1;
+            height: 1px;
+            background: $grey3;
+        }
+
+        .dividerText {
+            font-size: 16px;
+            color: $grey3;
+        }
+    }
+
+    .featureList{
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 0;
+        .featureCard{
+            width: 218px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: $box;
+            border: 1px solid $click-border;
+            border-radius: 10px;
+            padding: 20px 30px;
+            gap:10px;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+
+            img {
+                width: 38px;
+                height: 38px;
+                padding: 7px;
+                box-sizing: border-box;
+                background-color: rgba(82, 129, 97, 0.55);
+                border-radius: 7px;
+            }
+
+            .inventoryIcon {
+                display: block;
+                width: 38px;
+                height: 38px;
+                background-color: rgba(82, 129, 97, 0.55);
+                border-radius: 7px;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 7px;
+                    background-color: $point;
+                    -webkit-mask: url(/img/icon/inventory.svg) no-repeat center / contain;
+                    mask: url(/img/icon/inventory.svg) no-repeat center / contain;
+                }
+            }
+        }
+    }
+
+    .actionGroup {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 290px;
+        height: 60px;
+        background-color: $point;
+        color: $background;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: inherit;
+        line-height: 1;
+        cursor: pointer;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+}

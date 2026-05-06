@@ -1,0 +1,243 @@
+@use '../../../../styles/variables' as *;
+
+.container {
+    @include container;
+    flex-direction: column;
+    max-width: 564px;
+    padding-top: 50px;
+
+    .backLink {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: $grey1;
+        font-size: 16px;
+        text-decoration: none;
+        margin-bottom: 50px;
+    }
+
+    .steps {
+        display: flex;
+        list-style: none;
+        margin: 0 0 30px;
+        padding: 0;
+        gap: 12px;
+
+        .step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+
+            .stepLine {
+                height: 2px;
+                background: $grey3;
+                border-radius: 1px;
+            }
+
+            .stepLabel {
+                color: $grey3;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            &.active {
+                .stepLine {
+                    background: $point;
+                }
+
+                .stepLabel {
+                    color: $point;
+                }
+            }
+        }
+    }
+
+    .heading {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 36px;
+
+        h1 {
+            font-size: 54px;
+            font-weight: 700;
+            color: $white;
+            margin: 0;
+        }
+
+        span {
+            font-size: 16px;
+            color: $grey2;
+        }
+    }
+
+    .socialSignupBtn {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-bottom: 30px;
+
+        .kakao,
+        .naver {
+            width: 265px;
+            height: 52px;
+            cursor: pointer;
+
+            img {
+                display: block;
+                width: 265px;
+                height: 52px;
+                border-radius: 7px;
+            }
+        }
+    }
+
+    .divider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+
+        .dividerLine {
+            display: block;
+            flex: 1;
+            height: 1px;
+            background: $grey3;
+        }
+
+        .dividerText {
+            font-size: 14px;
+            color: $grey2;
+        }
+    }
+
+    .signupForm {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .inputGroup {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .box {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                span {
+                    font-size: 14px;
+                    color: $grey1;
+                }
+
+                .boxText {
+                    width: 100%;
+                    height: 60px;
+                    background: $box;
+                    border: 1px solid $box-border;
+                    border-radius: 10px;
+                    padding: 0 24px;
+                    color: $white;
+                    font-size: 16px;
+                    line-height: 1.2;
+                    outline: none;
+
+                    &:focus {
+                        border-color: $point;
+                    }
+
+                    &::placeholder {
+                        color: $grey3;
+                    }
+                }
+
+                .boxTextError,
+                .boxTextError:focus {
+                    border-color: #E55C5C;
+                }
+
+                .errorText {
+                    margin: 0;
+                    font-size: 13px;
+                    color: #E55C5C;
+                }
+
+                .passWord {
+                    position: relative;
+
+                    .boxText {
+                        padding-right: 56px;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        right: 24px;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .nextBtn {
+            width: 100%;
+            height: 60px;
+            background: $point;
+            border: none;
+            border-radius: 10px;
+            color: $background;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: filter 0.15s ease;
+
+            &:hover {
+                filter: brightness(1.05);
+            }
+
+            &:active {
+                filter: brightness(0.95);
+            }
+        }
+
+        .shake {
+            animation: shake 0.35s ease-in-out both;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-3px);
+            }
+
+            75% {
+                transform: translateY(3px);
+            }
+        }
+    }
+
+    .loginPrompt {
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        gap: 6px;
+        margin-top: 30px;
+
+        .loginText {
+            color: $grey1;
+        }
+
+        .loginLink {
+            color: $point;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+============================
+[2026-04-30] 작업 기록
+============================
+
+■ Gemma AI 응답 JSON 안정화 (route.js: /api/sales/openai)
+- 문제: Gemma 모델은 responseMimeType: 'application/json' 미지원
+  → 프롬프트로만 JSON 유도 시 "..." placeholder, 코드블록(```json) 포함 등 불완전 응답이 오는 경우 있음
+- 해결:
+  1. isValid() 함수로 응답 내용 유효성 검사
+     - summary, advice 각각 5자 이상 & "..." 미포함이어야 유효
+  2. 최대 3회 재시도 루프 추가
+     - JSON 파싱 실패 또는 isValid() 실패 시 재호출
+     - 유효한 응답을 얻으면 즉시 break
+  3. 3회 모두 실패 시 fallback 메시지 반환
+  4. 코드블록 제거 로직 추가: .replace(/```json|```/g, '')
+- 핵심 교훈:
+  - Gemma는 JSON 모드 미지원 → 파싱 성공 여부만 체크하면 부족, 내용까지 검증해야 함
+  - Gemini 모델은 responseMimeType + responseSchema로 JSON 강제 가능 (Gemma는 불가)
+
+============================
+[2026-04-23] 작업 기록
+============================
+
+■ 체크박스 선택 항목 일괄 삭제 (DB 연동)
+- 문제: ic-bin.svg 클릭 시 체크된 항목을 DB에서 삭제해야 함
+- 해결:
+  1. /api/sales/db/route.js DELETE 핸들러 수정
+     - 기존: 단일 date 파라미터
+     - 변경: dates 파라미터(쉼표 구분) + MongoDB $pull + $in 으로 일괄 삭제
+  2. page.jsx에 handleDelete 함수 추가
+     - checked 배열 기준으로 선택된 날짜들 추출
+     - axios.delete('/api/sales/db', { params: { dates: '...,...' } }) 호출
+     - 성공 후 salesData에서도 제거 + checked/checkedAll 초기화
+  3. ic-bin.svg 버튼에 onClick={handleDelete} 연결
+
+■ 팝업 바깥 클릭 시 닫기 (이벤트 버블링 문제)
+- 문제: .back에 onClick={onClose}를 넣으면 팝업 내부 클릭해도 닫힘
+- 원인: 이벤트 버블링 — 내부 클릭 이벤트가 .back까지 올라감
+- 해결 방법 1 (권장): e.target === e.currentTarget 조건
+    <div onClick={e => e.target === e.currentTarget && onClose()}>
+- 해결 방법 2: 내부 컨테이너에 e.stopPropagation()
+- 개념 정리:
+    e.target        → 실제로 클릭된 요소
+    e.currentTarget → onClick이 달린 요소 (이벤트 리스너 위치)
+    둘이 같으면 = 배경(.back) 자체를 클릭한 것

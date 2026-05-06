@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 100px 0 100px 0;
+  flex-direction: column;
+  max-width: 720px;
+}/*# sourceMappingURL=signup.module.css.map */
