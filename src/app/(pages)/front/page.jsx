@@ -1,4 +1,5 @@
-﻿import { useEffect, useRef, useState } from 'react';
+﻿"use client"
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 
 import styles from './front.module.scss';
